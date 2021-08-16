@@ -78,6 +78,13 @@ const mainTheme = {
       },
     },
   },
+  link: {
+    padding: '24px 0 10px',
+    underline: {
+      height: 2,
+      backgroundColor: color.shade000,
+    },
+  },
   mainView: {
     height: 600,
     borderRadius: 36,

@@ -4,8 +4,6 @@ import { TTheme } from '../../../types';
 import { IButton as ButtonInterface, DEFAULT_VARIANT, ButtonStyled } from './ButtonStyled';
 
 interface IButtonAttrs {
-  asLink?: boolean;
-  href?: string;
   selected?: boolean;
   backgroundColor?: keyof TTheme['color'];
   className?: string;

@@ -3,6 +3,7 @@ import { Route, RouteProps } from 'react-router-dom';
 
 import { MainView } from '../views';
 import { MAIN_VIEW } from '../endpoints';
+import { Navbar } from '../components/content';
 
 type TRoot = {
   key: string;
@@ -22,5 +23,10 @@ export function mapRoots(rootsList: TRoot[]): JSX.Element[] {
 }
 
 export default function AppRouter(): JSX.Element {
-  return <>{mapRoots(roots)}</>;
+  return (
+    <>
+      <Navbar />
+      {mapRoots(roots)}
+    </>
+  );
 }
