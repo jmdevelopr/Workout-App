@@ -1,13 +1,10 @@
 const color = {
-  primary120: '#2549CB',
-  primary100: '#2E5BFE',
-  secondary110: '#0E2EC1',
-  shade000: '#ffffff',
+  primary120: '#D53C50',
+  primary110: '#D53C50',
+  primary100: '#ED4359',
+  secondary100: '#AEBFC5',
+  shade000: '#FFFFFF',
   shade100: '#000000',
-};
-
-const gradient = {
-  gradientSecondary: 'linear-gradient(135deg, #2E5BFE 0%, #1033D6 100%)',
 };
 
 const shadow = {
@@ -36,14 +33,14 @@ const typography = {
   textSmall: {
     fontFamily: 'noto-sans-jp-regular, sans-serif',
     fontFamilyBold: 'noto-sans-jp-bold, sans-serif',
-    fontSize: 18,
-    lineHeight: 12,
+    fontSize: 16,
+    lineHeight: 18,
   },
   button: {
-    fontFamily: 'noto-sans-jp-regular, sans-serif',
-    fontFamilyBold: 'noto-sans-jp-bold, sans-serif',
-    fontSize: 14,
-    lineHeight: 12,
+    fontFamily: 'montserrat-medium, sans-serif',
+    fontFamilyBold: 'montserrat-semibold, sans-serif',
+    fontSize: 18,
+    lineHeight: 20,
   },
 };
 
@@ -52,10 +49,9 @@ const mainTheme = {
   shadow,
   animationTime,
   typography,
-  gradient,
   button: {
-    primary: {
-      padding: '4px 24px',
+    short: {
+      padding: '10px 0',
       borderRadius: '8px',
       typography: typography.button,
       backgroundColor: color.primary100,
@@ -63,25 +59,29 @@ const mainTheme = {
       border: 'none',
       shadow: shadow.callToAction,
       marginRight: 0,
-      width: 'auto',
+      width: '140px',
       height: 'auto',
       iconSize: '',
+      textAlign: 'center',
       hover: {
         border: 'none',
-        backgroundColor: color.secondary110,
+        backgroundColor: color.primary110,
         shadow: shadow.callToAction,
         color: color.shade000,
       },
       active: {
         backgroundColor: color.primary120,
         color: color.shade000,
-        padding: '4px 24px',
         border: 'none',
-        borderRadius: '8px',
         shadow: shadow.none,
         fill: color.shade000,
       },
     },
+  },
+  mainView: {
+    height: 600,
+    borderRadius: 36,
+    backgroundColor: color.shade000,
   },
 };
 

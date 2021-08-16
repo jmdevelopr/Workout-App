@@ -23,7 +23,7 @@ interface IButtonStyled extends IButton {
   theme: TTheme;
 }
 
-export const DEFAULT_VARIANT = 'primary';
+export const DEFAULT_VARIANT = 'short';
 
 const getStyles = ({
   variant = DEFAULT_VARIANT,
@@ -46,6 +46,7 @@ const getStyles = ({
       marginRight,
       width,
       height,
+      textAlign,
       hover: { border: borderHover, backgroundColor: backgroundColorHover, shadow: shadowHover, color: colorHover },
       active: {
         color: colorActive,
@@ -53,8 +54,6 @@ const getStyles = ({
         border: borderActive,
         shadow: shadowActive,
         fill: fillActive,
-        borderRadius: borderRadiusActive,
-        padding: paddingActive,
       },
     },
   } = button;
@@ -75,10 +74,12 @@ const getStyles = ({
       cursor: pointer;
       display: flex;
       align-items: center;
+      justify-content: center;
       text-decoration: none;
       z-index: 1;
       width: ${width};
       height: ${height};
+      text-align: ${textAlign};
       svg {
         fill: ${color || 'white'};
         margin-right: ${marginRight}px;
@@ -97,9 +98,7 @@ const getStyles = ({
         background-color: ${backgroundColorActive};
         color: ${colorActive};
         border: ${borderActive};
-        padding: ${paddingActive};
         box-shadow: ${disabled ? 'none' : getBoxShadow(shadowActive)};
-        border-radius: ${borderRadiusActive};
         svg {
           fill: ${fillActive};
         }

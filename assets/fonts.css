@@ -1,0 +1,39 @@
+@font-face {
+  font-family: 'montserrat-semibold';
+  src: url('fonts/Montserrat/Montserrat-SemiBold.ttf') format('truetype');
+  font-style: normal;
+  font-weight: bold;
+  text-rendering: optimizeLegibility;
+}
+
+@font-face {
+  font-family: 'montserrat-medium';
+  src: url('fonts/Montserrat/Montserrat-Medium.ttf') format('truetype');
+  font-style: normal;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+}
+
+@font-face {
+  font-family: 'noto-sans-jp-bold';
+  src: url('fonts/notoSansJP/NotoSansJP-Bold.otf') format('opentype');
+  font-style: normal;
+  font-weight: bold;
+  text-rendering: optimizeLegibility;
+}
+
+@font-face {
+  font-family: 'noto-sans-jp-medium';
+  src: url('fonts/notoSansJP/NotoSansJP-Medium.otf') format('opentype');
+  font-style: normal;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+}
+
+@font-face {
+  font-family: 'noto-sans-jp-regular';
+  src: url('fonts/notoSansJP/NotoSansJP-Regular.otf') format('opentype');
+  font-style: normal;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+}
