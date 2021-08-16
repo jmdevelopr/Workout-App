@@ -30,6 +30,18 @@ const animationTime = {
 };
 
 const typography = {
+  header: {
+    fontFamily: 'montserrat-semibold, sans-serif',
+    fontFamilyBold: 'montserrat-semibold, sans-serif',
+    fontSize: 24,
+    lineHeight: 20,
+  },
+  textNormal: {
+    fontFamily: 'noto-sans-jp-medium, sans-serif',
+    fontFamilyBold: 'noto-sans-jp-bold, sans-serif',
+    fontSize: 18,
+    lineHeight: 20,
+  },
   textSmall: {
     fontFamily: 'noto-sans-jp-regular, sans-serif',
     fontFamilyBold: 'noto-sans-jp-bold, sans-serif',
@@ -89,6 +101,11 @@ const mainTheme = {
     height: 600,
     borderRadius: 36,
     backgroundColor: color.shade000,
+  },
+  homeView: {
+    plan: {
+      height: 100,
+    },
   },
 };
 

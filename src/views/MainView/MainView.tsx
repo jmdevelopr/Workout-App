@@ -1,14 +1,11 @@
 import React from 'react';
-import { Button, Text } from '../../components';
+import { TChildren } from '../../types';
 import MainViewStyled from './MainViewStyled';
 
-export default function MainView(): JSX.Element {
-  return (
-    <MainViewStyled>
-      <Text typography="textSmall" color="secondary100">
-        Main View
-      </Text>
-      <Button>Button</Button>
-    </MainViewStyled>
-  );
+interface IMainView {
+  children: TChildren;
+}
+
+export default function MainView({ children }: IMainView): JSX.Element {
+  return <MainViewStyled>{children}</MainViewStyled>;
 }

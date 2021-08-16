@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, RouteProps } from 'react-router-dom';
 
-import { MainView } from '../views';
+import { HomeView } from '../views';
 import { MAIN_VIEW } from '../endpoints';
 import { Navbar } from '../components/content';
 
@@ -12,7 +12,7 @@ type TRoot = {
   exact?: boolean;
 };
 
-export const roots: TRoot[] = [{ key: 'main', component: MainView, path: MAIN_VIEW, exact: true }];
+export const roots: TRoot[] = [{ key: 'main', component: HomeView, path: MAIN_VIEW, exact: true }];
 
 export const mainRoots: TRoot[] = [];
 

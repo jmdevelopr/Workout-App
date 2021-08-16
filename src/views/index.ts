@@ -1,2 +1,2 @@
 // eslint-disable-next-line import/prefer-default-export
-export { default as MainView } from './MainView';
+export { default as HomeView } from './HomeView';
