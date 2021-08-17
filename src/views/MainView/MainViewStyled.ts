@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export default styled.div(
   ({
     theme: {
-      mainView: { height, borderRadius, backgroundColor },
+      mainView: { height, borderRadius, backgroundColor, paddingBottom },
     },
   }) => `
     position: absolute;
@@ -15,5 +15,24 @@ export default styled.div(
     border-top-right-radius: ${borderRadius}px;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    padding-bottom: ${paddingBottom}px;
+  `,
+);
+
+export const ScrollableElement = styled.div(
+  ({
+    theme: {
+      mainView: {
+        scrollable: { height },
+      },
+    },
+  }) => `
+    height: ${height}px;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
   `,
 );

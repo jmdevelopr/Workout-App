@@ -4,6 +4,7 @@ const color = {
   primary100: '#ED4359',
   secondary100: '#AEBFC5',
   shade000: '#FFFFFF',
+  shade005: '#F5F5F5',
   shade100: '#000000',
 };
 
@@ -89,6 +90,33 @@ const mainTheme = {
         fill: color.shade000,
       },
     },
+    quiet: {
+      padding: '10px 0',
+      borderRadius: '8px',
+      typography: typography.button,
+      backgroundColor: 'transparent',
+      color: color.secondary100,
+      border: 'none',
+      shadow: shadow.none,
+      marginRight: 0,
+      width: 'fit-content',
+      height: 'auto',
+      iconSize: '',
+      textAlign: 'center',
+      hover: {
+        border: 'none',
+        backgroundColor: 'transparent',
+        shadow: shadow.none,
+        color: color.secondary100,
+      },
+      active: {
+        backgroundColor: 'transparent',
+        color: color.secondary100,
+        border: 'none',
+        shadow: shadow.none,
+        fill: color.secondary100,
+      },
+    },
   },
   link: {
     padding: '24px 0 10px',
@@ -97,14 +125,40 @@ const mainTheme = {
       backgroundColor: color.shade000,
     },
   },
+  input: {
+    typography: typography.textNormal,
+    typographyHeader: typography.header,
+    padding: '10px 14px',
+    backgroundColor: color.shade005,
+    borderRadius: 8,
+  },
   mainView: {
     height: 600,
     borderRadius: 36,
     backgroundColor: color.shade000,
+    paddingBottom: 40,
+    scrollable: {
+      height: 480,
+    },
   },
   homeView: {
-    plan: {
+    header: {
+      margin: '30px 0 40px',
+    },
+    workoutPlan: {
       height: 100,
+      padding: '0 30px',
+      marginBottom: 50,
+    },
+    workoutDetails: {
+      marginRight: 16,
+    },
+  },
+  createView: {
+    exercise: {
+      padding: '0 30px',
+      marginRight: 16,
+      marginBottom: 50,
     },
   },
 };
