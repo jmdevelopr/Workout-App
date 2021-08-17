@@ -4,6 +4,7 @@ import { Text } from '../../components';
 export const Header = styled(Text)`
   text-align: center;
   margin: 30px 0 40px;
+  outline: none;
 `;
 
 export const ScrollableElement = styled.div`

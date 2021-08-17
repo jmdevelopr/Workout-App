@@ -1,8 +1,8 @@
 import React from 'react';
 import { Route, RouteProps } from 'react-router-dom';
 
-import { HomeView } from '../views';
-import { MAIN_VIEW } from '../endpoints';
+import { HomeView, CreateView } from '../views';
+import { HOME_VIEW, CREATE_VIEW } from '../endpoints';
 import { Navbar } from '../components/content';
 
 type TRoot = {
@@ -12,7 +12,10 @@ type TRoot = {
   exact?: boolean;
 };
 
-export const roots: TRoot[] = [{ key: 'main', component: HomeView, path: MAIN_VIEW, exact: true }];
+export const roots: TRoot[] = [
+  { key: 'home', component: HomeView, path: HOME_VIEW, exact: true },
+  { key: 'create', component: CreateView, path: CREATE_VIEW, exact: true },
+];
 
 export const mainRoots: TRoot[] = [];
 
