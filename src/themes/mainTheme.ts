@@ -4,6 +4,7 @@ const color = {
   primary100: '#ED4359',
   secondary100: '#AEBFC5',
   shade000: '#FFFFFF',
+  shade005: '#F5F5F5',
   shade100: '#000000',
 };
 
@@ -96,6 +97,12 @@ const mainTheme = {
       height: 2,
       backgroundColor: color.shade000,
     },
+  },
+  input: {
+    typography: typography.textNormal,
+    typographyHeader: typography.header,
+    padding: '10px 14px',
+    backgroundColor: color.shade005,
   },
   mainView: {
     height: 600,

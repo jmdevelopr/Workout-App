@@ -11,8 +11,8 @@ interface IExercise {
 function Exercise({ name, time }: IExercise): ReactElement {
   return (
     <ExerciseStyled>
-      <Input value={name} />
-      <Input value={time} type="number" />
+      <Input value={name} background />
+      <Input value={time} type="number" background />
     </ExerciseStyled>
   );
 }
@@ -32,7 +32,7 @@ export default function CreateView(): ReactElement {
 
   return (
     <MainView>
-      <Input value="Workout name" />
+      <Input value="Workout name" header />
       {workoutPlan.map(({ name, time }: IExercise) => (
         <Exercise name={name} time={time} />
       ))}
