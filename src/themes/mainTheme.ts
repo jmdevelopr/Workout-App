@@ -103,6 +103,7 @@ const mainTheme = {
     typographyHeader: typography.header,
     padding: '10px 14px',
     backgroundColor: color.shade005,
+    borderRadius: 8,
   },
   mainView: {
     height: 600,
@@ -123,6 +124,11 @@ const mainTheme = {
     },
     workoutDetails: {
       marginRight: 16,
+    },
+  },
+  createView: {
+    exercise: {
+      padding: '0 30px',
     },
   },
 };

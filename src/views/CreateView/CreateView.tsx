@@ -11,8 +11,8 @@ interface IExercise {
 function Exercise({ name, time }: IExercise): ReactElement {
   return (
     <ExerciseStyled>
-      <Input value={name} background />
-      <Input value={time} type="number" background />
+      <Input value={name} background width={225} />
+      <Input value={time} type="number" background width={70} />
     </ExerciseStyled>
   );
 }

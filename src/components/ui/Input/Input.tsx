@@ -3,10 +3,9 @@ import InputStyled, { IInputStyled } from './InputStyled';
 
 interface IInput extends IInputStyled {
   value: string | number;
-  type?: string;
 }
 
-export default function Input({ value: text, type, background, header }: IInput): ReactElement {
+export default function Input({ value: text, type, background, header, width }: IInput): ReactElement {
   const [value, setValue] = useState(text);
 
   const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -21,10 +20,7 @@ export default function Input({ value: text, type, background, header }: IInput)
       onChange={handleOnChange}
       background={background}
       header={header}
+      width={width}
     />
   );
 }
-
-Input.defaultProps = {
-  type: 'text',
-};
