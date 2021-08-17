@@ -107,5 +107,3 @@ const getStyles = ({
 };
 
 export const ButtonStyled = styled.button<IButton>(getStyles);
-
-export const LinkStyled = styled.a<IButton>(getStyles);

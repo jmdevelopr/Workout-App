@@ -1,6 +1,11 @@
 import styled from 'styled-components';
 
-export const Form = styled.form``;
+export const Form = styled.form`
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
 export const ExerciseStyled = styled.div(
   ({

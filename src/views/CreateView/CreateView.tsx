@@ -1,9 +1,9 @@
-import React, { ReactElement, useState } from 'react';
+import React, { FormEvent, MouseEvent, ReactElement, useState } from 'react';
 import { Button, Input } from '../../components';
 import MainView, { ScrollableElement } from '../MainView';
-import { ExerciseStyled } from './CreateViewStyled';
+import { ExerciseStyled, Form } from './CreateViewStyled';
 
-interface IExercise {
+export interface IExercise {
   name: string;
   time: number;
 }
@@ -20,7 +20,8 @@ function Exercise({ name, time }: IExercise): ReactElement {
 export default function CreateView(): ReactElement {
   const [workoutPlan, setWorkoutPlan] = useState<IExercise[]>([]);
 
-  const addWorkout = () => {
+  const addWorkout = (e: MouseEvent<HTMLElement>) => {
+    e.preventDefault();
     setWorkoutPlan([
       ...workoutPlan,
       {
@@ -30,15 +31,43 @@ export default function CreateView(): ReactElement {
     ]);
   };
 
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const formElement = e.target as HTMLFormElement;
+    const inputs = formElement.querySelectorAll('input');
+    const [workoutName, ...exercises] = Array.from(inputs);
+
+    const exercisesList = exercises.reduce<IExercise[]>((previousValue, currentValue, currentIndex, array) => {
+      const name = currentValue.value;
+      const time = parseFloat(array[currentIndex + 1].value);
+      array.shift();
+      return [...previousValue, { name, time }];
+    }, []);
+
+    // it will be [...localStorage, { name, exerises }] once we add localStorage
+    return [
+      {
+        name: workoutName,
+        exercises: exercisesList,
+      },
+    ];
+  };
+
   return (
     <MainView>
-      <Input value="Workout name" header />
-      <ScrollableElement>
-        {workoutPlan.map(({ name, time }: IExercise) => (
-          <Exercise name={name} time={time} />
-        ))}
-        <Button onClick={addWorkout}>Add a new item</Button>
-      </ScrollableElement>
+      <Form onSubmit={handleSubmit}>
+        <Input value="Workout name" header />
+        <ScrollableElement>
+          {workoutPlan.map(({ name, time }: IExercise) => (
+            <Exercise name={name} time={time} />
+          ))}
+          <Button variant="quiet" onClick={addWorkout}>
+            Add a new item
+          </Button>
+        </ScrollableElement>
+        <Button>Save</Button>
+      </Form>
     </MainView>
   );
 }
