@@ -109,13 +109,13 @@ const mainTheme = {
     height: 600,
     borderRadius: 36,
     backgroundColor: color.shade000,
+    scrollable: {
+      height: 480,
+    },
   },
   homeView: {
     header: {
       margin: '30px 0 40px',
-    },
-    scrollable: {
-      height: 480,
     },
     workoutPlan: {
       height: 100,
@@ -129,6 +129,8 @@ const mainTheme = {
   createView: {
     exercise: {
       padding: '0 30px',
+      marginRight: 16,
+      marginBottom: 50,
     },
   },
 };

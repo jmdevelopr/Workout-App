@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react';
 import { Button, Text } from '../../components';
-import MainView from '../MainView';
-import { WorkoutPlan, PlanSection, ScrollableElement, WorkoutDetails, Header } from './HomeViewStyled';
+import MainView, { ScrollableElement } from '../MainView';
+import { WorkoutPlan, PlanSection, WorkoutDetails, Header } from './HomeViewStyled';
 import { workoutPlans } from './workoutPlans';
 
 interface IPlan {

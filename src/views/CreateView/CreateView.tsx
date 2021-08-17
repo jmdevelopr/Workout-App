@@ -1,6 +1,6 @@
 import React, { ReactElement, useState } from 'react';
 import { Button, Input } from '../../components';
-import MainView from '../MainView';
+import MainView, { ScrollableElement } from '../MainView';
 import { ExerciseStyled } from './CreateViewStyled';
 
 interface IExercise {
@@ -33,10 +33,12 @@ export default function CreateView(): ReactElement {
   return (
     <MainView>
       <Input value="Workout name" header />
-      {workoutPlan.map(({ name, time }: IExercise) => (
-        <Exercise name={name} time={time} />
-      ))}
-      <Button onClick={addWorkout}>Add a new item</Button>
+      <ScrollableElement>
+        {workoutPlan.map(({ name, time }: IExercise) => (
+          <Exercise name={name} time={time} />
+        ))}
+        <Button onClick={addWorkout}>Add a new item</Button>
+      </ScrollableElement>
     </MainView>
   );
 }

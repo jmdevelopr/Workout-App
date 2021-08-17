@@ -6,7 +6,7 @@ export const ExerciseStyled = styled.div(
   ({
     theme: {
       createView: {
-        exercise: { padding },
+        exercise: { padding, marginRight, marginBottom },
       },
     },
   }) => `
@@ -16,8 +16,11 @@ export const ExerciseStyled = styled.div(
     padding: ${padding};
     & > * {
       &:nth-child(1) {
-        margin-right: 16px;
+        margin-right: ${marginRight}px;
       }
+    }
+    &:not(:last-child) {
+      margin-bottom: ${marginBottom}px;
     }
   `,
 );

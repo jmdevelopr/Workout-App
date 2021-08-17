@@ -17,3 +17,16 @@ export default styled.div(
     flex-direction: column;
   `,
 );
+
+export const ScrollableElement = styled.div(
+  ({
+    theme: {
+      mainView: {
+        scrollable: { height },
+      },
+    },
+  }) => `
+    height: ${height}px;
+    overflow-y: scroll;
+  `,
+);

@@ -15,19 +15,6 @@ export const Header = styled(Text)(
   `,
 );
 
-export const ScrollableElement = styled.div(
-  ({
-    theme: {
-      homeView: {
-        scrollable: { height },
-      },
-    },
-  }) => `
-    height: ${height}px;
-    overflow-y: scroll;
-  `,
-);
-
 export const WorkoutPlan = styled.div(
   ({
     theme: {
