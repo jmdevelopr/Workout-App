@@ -110,8 +110,19 @@ const mainTheme = {
     backgroundColor: color.shade000,
   },
   homeView: {
-    plan: {
+    header: {
+      margin: '30px 0 40px',
+    },
+    scrollable: {
+      height: 480,
+    },
+    workoutPlan: {
       height: 100,
+      padding: '0 30px',
+      marginBottom: 50,
+    },
+    workoutDetails: {
+      marginRight: 16,
     },
   },
 };

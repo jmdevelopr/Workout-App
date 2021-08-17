@@ -1,31 +1,47 @@
 import styled from 'styled-components';
 import { Text } from '../../components';
 
-export const Header = styled(Text)`
-  text-align: center;
-  margin: 30px 0 40px;
-  outline: none;
-`;
+export const Header = styled(Text)(
+  ({
+    theme: {
+      homeView: {
+        header: { margin },
+      },
+    },
+  }) => `
+    text-align: center;
+    margin: ${margin};
+    outline: none;
+  `,
+);
 
-export const ScrollableElement = styled.div`
-  height: 480px;
-  overflow-y: scroll;
-`;
+export const ScrollableElement = styled.div(
+  ({
+    theme: {
+      homeView: {
+        scrollable: { height },
+      },
+    },
+  }) => `
+    height: ${height}px;
+    overflow-y: scroll;
+  `,
+);
 
 export const WorkoutPlan = styled.div(
   ({
     theme: {
       homeView: {
-        plan: { height },
+        workoutPlan: { height, padding, marginBottom },
       },
     },
   }) => `
     display: flex;
     justify-content: space-between;
     height: ${height}px;
-    padding: 0 30px;
+    padding: ${padding};
     &:not(:last-child) {
-      margin-bottom: 50px;
+      margin-bottom: ${marginBottom}px;
     }
   `,
 );
@@ -36,6 +52,14 @@ export const PlanSection = styled.div`
   flex-direction: column;
 `;
 
-export const WorkoutDetails = styled(Text)`
-  margin-right: 16px;
-`;
+export const WorkoutDetails = styled(Text)(
+  ({
+    theme: {
+      homeView: {
+        workoutDetails: { marginRight },
+      },
+    },
+  }) => `
+    margin-right: ${marginRight}px;
+  `,
+);
