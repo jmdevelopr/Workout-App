@@ -45,13 +45,31 @@ export default function CreateView(): ReactElement {
       return [...previousValue, { name, time }];
     }, []);
 
-    // it will be [...localStorage, { name, exerises }] once we add localStorage
-    return [
-      {
-        name: workoutName,
-        exercises: exercisesList,
-      },
-    ];
+    const userWorkouts = localStorage.getItem('workouts') || '';
+
+    if (userWorkouts !== '') {
+      localStorage.setItem(
+        'workouts',
+        JSON.stringify([
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+          ...JSON.parse(userWorkouts),
+          {
+            name: workoutName.value,
+            exercises: exercisesList,
+          },
+        ]),
+      );
+    } else {
+      localStorage.setItem(
+        'workouts',
+        JSON.stringify([
+          {
+            name: workoutName.value,
+            exercises: exercisesList,
+          },
+        ]),
+      );
+    }
   };
 
   return (
