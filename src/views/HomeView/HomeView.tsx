@@ -1,33 +1,47 @@
 import React, { ReactElement } from 'react';
 import { Button, Text } from '../../components';
+import { IExercise } from '../CreateView/CreateView';
 import MainView, { ScrollableElement } from '../MainView';
 import { WorkoutPlan, PlanSection, WorkoutDetails, Header } from './HomeViewStyled';
-import { workoutPlans } from './workoutPlans';
 
-interface IPlan {
+export interface IPlan {
+  id: string;
   name: string;
-  details: string;
+  exercises: IExercise[];
 }
 
+const exercisesToDetails = (exercises: IExercise[]) => {
+  const details = exercises.reduce((previousValue, currentValue) => {
+    return `${previousValue} ${currentValue.name} ${currentValue.time} •`;
+  }, '');
+
+  return details.slice(0, -2);
+};
+
 export default function Home(): ReactElement {
+  const workoutPlans = localStorage.getItem('workouts') || '';
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+  const workoutPlansArr: IPlan[] = workoutPlans !== '' ? JSON.parse(workoutPlans) : [];
+
   return (
     <MainView>
       <Header typography="header">Your plans</Header>
       <ScrollableElement>
-        {workoutPlans.map((plan: IPlan) => (
-          <WorkoutPlan>
-            <PlanSection>
-              <Text typography="textNormal">{plan.name}</Text>
-              <WorkoutDetails typography="textSmall" color="secondary100">
-                {plan.details.substr(0, 80)}...
-              </WorkoutDetails>
-            </PlanSection>
-            <PlanSection>
-              <Button>Train</Button>
-              <Button>Edit</Button>
-            </PlanSection>
-          </WorkoutPlan>
-        ))}
+        {workoutPlans !== '' &&
+          workoutPlansArr.map(({ id, name, exercises }: IPlan) => (
+            <WorkoutPlan key={id}>
+              <PlanSection>
+                <Text typography="textNormal">{name}</Text>
+                <WorkoutDetails typography="textSmall" color="secondary100">
+                  {exercisesToDetails(exercises)}
+                </WorkoutDetails>
+              </PlanSection>
+              <PlanSection>
+                <Button>Train</Button>
+                <Button>Edit</Button>
+              </PlanSection>
+            </WorkoutPlan>
+          ))}
       </ScrollableElement>
     </MainView>
   );
