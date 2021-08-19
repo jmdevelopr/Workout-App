@@ -4,10 +4,19 @@ import { IExercise } from '../CreateView/CreateView';
 import MainView, { ScrollableElement } from '../MainView';
 import { WorkoutPlan, PlanSection, WorkoutDetails, Header } from './HomeViewStyled';
 
-interface IPlan {
+export interface IPlan {
+  id: string;
   name: string;
-  details: IExercise[];
+  exercises: IExercise[];
 }
+
+const exercisesToDetails = (exercises: IExercise[]) => {
+  const details = exercises.reduce((previousValue, currentValue) => {
+    return `${previousValue} ${currentValue.name} ${currentValue.time} •`;
+  }, '');
+
+  return details.slice(0, -2);
+};
 
 export default function Home(): ReactElement {
   const workoutPlans = localStorage.getItem('workouts') || '';
@@ -19,12 +28,12 @@ export default function Home(): ReactElement {
       <Header typography="header">Your plans</Header>
       <ScrollableElement>
         {workoutPlans !== '' &&
-          workoutPlansArr.map((plan: IPlan) => (
-            <WorkoutPlan>
+          workoutPlansArr.map(({ id, name, exercises }: IPlan) => (
+            <WorkoutPlan key={id}>
               <PlanSection>
-                <Text typography="textNormal">{plan.name}</Text>
+                <Text typography="textNormal">{name}</Text>
                 <WorkoutDetails typography="textSmall" color="secondary100">
-                  Details
+                  {exercisesToDetails(exercises)}
                 </WorkoutDetails>
               </PlanSection>
               <PlanSection>

@@ -4,6 +4,7 @@ import MainView, { ScrollableElement } from '../MainView';
 import { ExerciseStyled, Form } from './CreateViewStyled';
 
 export interface IExercise {
+  id?: string;
   name: string;
   time: number;
 }
@@ -25,6 +26,7 @@ export default function CreateView(): ReactElement {
     setWorkoutPlan([
       ...workoutPlan,
       {
+        id: `exercisename${workoutPlan.length + 1}`,
         name: 'Exercise name',
         time: 0,
       },
@@ -55,6 +57,7 @@ export default function CreateView(): ReactElement {
           ...JSON.parse(userWorkouts),
           {
             name: workoutName.value,
+            id: workoutName.value.toLowerCase().replace(/\s+/g, ''),
             exercises: exercisesList,
           },
         ]),
@@ -65,6 +68,7 @@ export default function CreateView(): ReactElement {
         JSON.stringify([
           {
             name: workoutName.value,
+            id: workoutName.value.toLowerCase().replace(/\s+/g, ''),
             exercises: exercisesList,
           },
         ]),
@@ -77,8 +81,8 @@ export default function CreateView(): ReactElement {
       <Form onSubmit={handleSubmit}>
         <Input value="Workout name" header />
         <ScrollableElement>
-          {workoutPlan.map(({ name, time }: IExercise) => (
-            <Exercise name={name} time={time} />
+          {workoutPlan.map(({ name, time, id }: IExercise) => (
+            <Exercise name={name} time={time} key={id} />
           ))}
           <Button variant="quiet" onClick={addWorkout}>
             Add a new item
