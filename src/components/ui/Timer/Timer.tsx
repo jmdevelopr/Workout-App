@@ -3,12 +3,13 @@ import Text from '../Text';
 import TimerStyled from './TimerStyled';
 
 export interface IProps {
-  initialMinute?: number;
   initialSeconds?: number;
+  exercise: number;
+  setExercise: React.Dispatch<React.SetStateAction<number>>;
+  setInitialSeconds: () => number;
 }
 
-const Timer = ({ initialMinute = 0, initialSeconds = 0 }: IProps): ReactElement => {
-  const [minutes, setMinutes] = useState(initialMinute);
+const Timer = ({ initialSeconds = 0, exercise, setExercise, setInitialSeconds }: IProps): ReactElement => {
   const [seconds, setSeconds] = useState(initialSeconds);
   useEffect(() => {
     const myInterval = setInterval(() => {
@@ -16,12 +17,9 @@ const Timer = ({ initialMinute = 0, initialSeconds = 0 }: IProps): ReactElement 
         setSeconds(seconds - 1);
       }
       if (seconds === 0) {
-        if (minutes === 0) {
-          clearInterval(myInterval);
-        } else {
-          setMinutes(minutes - 1);
-          setSeconds(59);
-        }
+        setExercise(exercise + 1);
+        const time = setInitialSeconds();
+        setSeconds(time);
       }
     }, 1000);
     return () => {
@@ -31,10 +29,9 @@ const Timer = ({ initialMinute = 0, initialSeconds = 0 }: IProps): ReactElement 
 
   return (
     <TimerStyled>
-      {minutes === 0 && seconds === 0 ? null : (
+      {seconds === 0 ? null : (
         <Text typography="header" color="shade000">
-          {' '}
-          {seconds < 10 ? `0${seconds}` : seconds}
+          {seconds}
         </Text>
       )}
     </TimerStyled>
