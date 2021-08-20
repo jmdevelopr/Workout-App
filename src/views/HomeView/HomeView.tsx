@@ -1,15 +1,9 @@
 import React, { ReactElement } from 'react';
 import { Link } from 'react-router-dom';
 import { Button, Text } from '../../components';
-import { IExercise } from '../CreateView/CreateView';
+import { IExercise, IPlan } from '../../types';
 import MainView, { ScrollableElement } from '../MainView';
 import { WorkoutPlan, PlanSection, WorkoutDetails, Header } from './HomeViewStyled';
-
-export interface IPlan {
-  id: string;
-  name: string;
-  exercises: IExercise[];
-}
 
 const exercisesToDetails = (exercises: IExercise[]) => {
   const details = exercises.reduce((previousValue, currentValue) => {

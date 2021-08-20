@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 import { useParams } from 'react-router-dom';
-import { IPlan } from '../HomeView/HomeView';
+import { IPlan } from '../../types';
 import WorkoutViewStyled from './WorkoutViewStyled';
 
 export interface IParams {

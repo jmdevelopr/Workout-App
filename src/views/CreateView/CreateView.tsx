@@ -1,13 +1,8 @@
 import React, { FormEvent, MouseEvent, ReactElement, useState } from 'react';
 import { Button, Input } from '../../components';
+import { IExercise } from '../../types';
 import MainView, { ScrollableElement } from '../MainView';
 import { ExerciseStyled, Form } from './CreateViewStyled';
-
-export interface IExercise {
-  id?: string;
-  name: string;
-  time: number;
-}
 
 function Exercise({ name, time }: IExercise): ReactElement {
   return (
