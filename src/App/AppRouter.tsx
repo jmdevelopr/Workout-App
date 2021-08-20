@@ -1,8 +1,8 @@
 import React from 'react';
 import { Route, RouteProps } from 'react-router-dom';
 
-import { HomeView, CreateView } from '../views';
-import { HOME_VIEW, CREATE_VIEW } from '../endpoints';
+import { HomeView, CreateView, WorkoutView } from '../views';
+import { HOME_VIEW, CREATE_VIEW, WORKOUT_VIEW } from '../endpoints';
 import { Navbar } from '../components/content';
 
 type TRoot = {
@@ -15,6 +15,7 @@ type TRoot = {
 export const roots: TRoot[] = [
   { key: 'home', component: HomeView, path: HOME_VIEW, exact: true },
   { key: 'create', component: CreateView, path: CREATE_VIEW, exact: true },
+  { key: 'workout', component: WorkoutView, path: WORKOUT_VIEW, exact: false },
 ];
 
 export const mainRoots: TRoot[] = [];

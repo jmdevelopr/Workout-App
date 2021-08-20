@@ -1,4 +1,5 @@
 import React, { ReactElement } from 'react';
+import { Link } from 'react-router-dom';
 import { Button, Text } from '../../components';
 import { IExercise } from '../CreateView/CreateView';
 import MainView, { ScrollableElement } from '../MainView';
@@ -37,7 +38,9 @@ export default function Home(): ReactElement {
                 </WorkoutDetails>
               </PlanSection>
               <PlanSection>
-                <Button>Train</Button>
+                <Link to={`/${id}`}>
+                  <Button>Train</Button>
+                </Link>
                 <Button>Edit</Button>
               </PlanSection>
             </WorkoutPlan>
