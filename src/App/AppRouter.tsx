@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, RouteProps } from 'react-router-dom';
+import { Route, RouteProps, useHistory } from 'react-router-dom';
 
 import { HomeView, CreateView, WorkoutView } from '../views';
 import { HOME_VIEW, CREATE_VIEW, WORKOUT_VIEW } from '../endpoints';
@@ -27,9 +27,11 @@ export function mapRoots(rootsList: TRoot[]): JSX.Element[] {
 }
 
 export default function AppRouter(): JSX.Element {
+  const history = useHistory();
+  const path = history.location.pathname;
   return (
     <>
-      <Navbar />
+      {(path === HOME_VIEW || path === CREATE_VIEW) && <Navbar />}
       {mapRoots(roots)}
     </>
   );
